@@ -13,12 +13,12 @@ function onSend(event){
     const {email, message} = event.target.elements
     if (!email.value || !message.value) {
         alert('Заполните форму')
+        return
     }
        submit.reset()
        localStorage.clear()
-       
+       console.log(obj);
     
-    console.log(obj);
 }
 
 function onInput(event) {
