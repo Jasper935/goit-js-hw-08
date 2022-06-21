@@ -9,8 +9,11 @@ const obj ={}
 rememberForm()
 function onSend(event){
     event.preventDefault()
-    // const formData =new FormData(submit )
     
+    const {email, message} = event.target.elements
+    if (!email.value || !message.value) {
+        alert('Заполните форму')
+    }
        submit.reset()
        localStorage.clear()
        
@@ -35,7 +38,6 @@ function rememberForm(){
 
     Object.entries(storageValues).forEach(([name, value])=>{
    
-    
     obj[name] = value
     submit.elements[name].value = value
     
