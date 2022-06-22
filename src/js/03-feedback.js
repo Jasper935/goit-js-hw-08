@@ -5,11 +5,11 @@ const submit = document.querySelector('.feedback-form')
 submit.addEventListener('input',throttle(onInput), 500)
 
 submit.addEventListener('submit', onSend)
-const obj ={}
+let obj = {}
 rememberForm()
 function onSend(event){
     event.preventDefault()
-    
+   
     const {email, message} = event.target.elements
     if (!email.value || !message.value) {
         alert('Заполните форму')
@@ -18,11 +18,12 @@ function onSend(event){
        submit.reset()
        localStorage.clear()
        console.log(obj);
-    
+       obj = {}; 
 }
 
 function onInput(event) {
-    
+ 
+  
     obj[event.target.name]=event.target.value
 
     localStorage.setItem("feedback-form-state", JSON.stringify(obj))
@@ -46,23 +47,6 @@ function rememberForm(){
 }
 
 
-
-
-// const email = document.querySelector('[name="email"]')
-// const textArea = document.querySelector('[name="message"]')
-
-// email.addEventListener('input', onEmail)
-// textArea.addEventListener('input', onText)
-// function onEmail(event) {
-//     event.preventDefault()
-   
-//     // const formData = new FormData(email)
-    
-// }
-// function onText(event) {
-    
-//     // console.log(event.target.value.name);
-// }
 
 
 
